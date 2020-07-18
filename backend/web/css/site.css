@@ -1,0 +1,255 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+/*.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}*/
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+
+
+/* END NAVIGATION */
+/* PROFILE */
+.profile {
+  width: 100%;
+  float: left;
+  /*padding: 15px 10px;*/
+  position: relative;
+  /*background: #4E4E52;*/
+background-image: url(../img/sidebar_cover.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+}
+.profile .profile-image {
+  float: left;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.profile .profile-image img {
+  width: 90px;
+  height: 90px;
+  border: 3px solid #FFF;
+  -moz-border-radius: 20%;
+  -webkit-border-radius: 20%;
+  border-radius: 20%;
+}
+.profile .profile-data {
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin-top: 8px;
+}
+.profile .profile-data .profile-data-name {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #FFF;
+}
+.profile .profile-data .profile-data-title {
+  width: 100%;
+  float: left;
+  font-size: 11px;
+  font-weight: 400;
+  color: #999;
+}
+.profile .profile-controls a {
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  color: #DDD;
+  border: 2px solid #DDD;
+  line-height: 25px;
+  position: absolute;
+  -moz-border-radius: 20%;
+  -webkit-border-radius: 20%;
+  border-radius: 20%;
+  padding: 0px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.profile .profile-controls a.profile-control-left {
+  left: 15px;
+  top: 53px;
+  text-align: center;
+}
+.profile .profile-controls a.profile-control-right {
+  right: 15px;
+  top: 53px;
+  text-align: center;
+}
+.profile .profile-controls a .fa,
+.profile .profile-controls a .glyphicon {
+  width: auto;
+  margin-right: auto;
+}
+.profile .profile-controls a:hover {
+  border-color: #FFF;
+  color: #FFF;
+}
+
+.contact-info {
+    float: left;
+    width: 100%;
+}
+
+/* for live chats css*/
+.list-group-contacts .list-group-item {
+    padding: 10px;
+}
+.list-group .list-group-item {
+    line-height: 20px;
+}
+
+a.list-group-item {
+    color: #555;
+}
+
+.list-group-item {
+    border-color: #E5E5E5;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.list-group-status{
+  float: left;
+    margin-right: 10px;
+    height: 40px;
+    width: 10px;
+    position: relative;
+}
+
+.list-group .list-group-item {
+    line-height: 20px;
+}
+
+a.list-group-item {
+    color: #555;
+}
+
+
+
+.list-group-contacts .list-group-item .contacts-title {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+}
