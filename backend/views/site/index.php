@@ -3,7 +3,7 @@ use dosamigos\chartjs\ChartJs;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Color Admin ';
+$this->title = 'Отчеты';
 ?>
 
 <!-- begin row -->
