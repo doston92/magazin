@@ -1,0 +1,67 @@
+name: Deploy
+on:
+  push:
+    branches: [development, pre-production, production]
+  pull_request:
+    branches: [development, pre-production, production]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.branch.outputs.branch }}
+    steps:
+      - name: Branch name
+        uses: actions/checkout@v2
+      - name: Get branch
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: branch
+  development:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ needs.build.outputs.branch == 'development' }}
+    steps:
+      - name: "Check out"
+        uses: actions/checkout@v2
+      - name: Access SSH and Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~ && ./dev_web_deploy.sh
+  pre-production:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ needs.build.outputs.branch == 'pre-production' }}
+    steps:
+      - name: "Check out"
+        uses: actions/checkout@v2
+      - name: Access SSH and Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~ && ./pre_web_deploy.sh
+  production:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ needs.build.outputs.branch == 'production' }}
+    steps:
+      - name: "Check out"
+        uses: actions/checkout@v2
+      - name: Access SSH and Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~ && ./web_deploy.sh
