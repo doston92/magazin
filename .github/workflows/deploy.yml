@@ -20,7 +20,7 @@ jobs:
   master:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ needs.build.outputs.branch == 'development' }}
+    if: ${{ needs.build.outputs.branch == 'master' }}
     steps:
       - name: "Check out"
         uses: actions/checkout@v2
@@ -32,4 +32,4 @@ jobs:
           password: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ~ && ./dev_web_deploy.sh
+            cd ~ && ./deploy.sh
